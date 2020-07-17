@@ -1,0 +1,13 @@
+body {
+    background-color: #e8faed;
+    height: 100%;
+}
+
+nav {
+    background-color: #15cbff;
+}
+
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
