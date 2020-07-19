@@ -111,7 +111,7 @@ venv.bak/
 
 db.sqlite3.sqbpro
 /staticfiles/
-/media/
+**/media/
 
 .DS_Store
 **/.DS_Store
