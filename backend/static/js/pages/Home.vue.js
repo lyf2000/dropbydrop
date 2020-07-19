@@ -7,7 +7,7 @@ const template =
 const blogTemplate =
         `
     <div id="blogList">
-        <b-card class="mt-3" v-for="blog in blogList" :key="blog.id" :title="blog.title">
+        <b-card @click="router.push({ name: 'blog', params: { id: blog.id } })" class="mt-3" v-for="blog in blogList" :key="blog.id" :title="blog.title">
             
         </b-card>
     </div>
