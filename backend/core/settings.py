@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'backend.blog',
 
     # 3rd-party
-
+    'rest_framework',
 ]
 
 AUTH_USER_MODEL = 'users.User'

@@ -7,7 +7,10 @@ class Blog(models.Model):
 
 
 class Post(models.Model):
-    blog = models.ForeignKey('Blog', on_delete=models.CASCADE, related_name='blogs')
+    blog = models.ForeignKey('Blog', on_delete=models.CASCADE, related_name='posts')
 
     title = models.CharField(max_length=256)
     text = models.CharField(max_length=512)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
