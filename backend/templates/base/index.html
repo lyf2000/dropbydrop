@@ -39,7 +39,7 @@
     <div class="container">
 
 
-        <div class="text-center" style="margin-top: 20px;">
+        <div  style="margin-top: 20px;">
             <router-view></router-view>
         </div>
     </div>
@@ -59,6 +59,7 @@
 <script src="{% static 'js/pages/Home.vue.js' %}"></script>
 <script src="{% static 'js/pages/About.vue.js' %}"></script>
 <script src="{% static 'js/pages/Blog.vue.js' %}"></script>
+<script src="{% static 'js/pages/Post.vue.js' %}"></script>
 
 <!-- Vue Instance and Routes -->
 <script>
@@ -66,7 +67,8 @@
 
     var routes = [
         {path: '/', component: Home, name: "home"},
-        {path: '/:id', component: Blog, name: "blog"},
+        {path: '/:id', component: Blog, name: "blog", props: true},
+        {path: '/post/:id', component: Post, name: "post", props: true},
         {path: '/about', component: About, name: "about"},
     ];
 

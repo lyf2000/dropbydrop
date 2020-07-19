@@ -1,7 +1,7 @@
 from rest_framework import generics
 
-from backend.blog.models import Blog
-from backend.blog.serializers import BlogListSerializer, BlogDetailSerializer
+from backend.blog.models import Blog, Post
+from backend.blog.serializers import BlogListSerializer, BlogDetailSerializer, PostSerializer
 
 
 # TODO add pagination
@@ -13,3 +13,8 @@ class BlogListView(generics.ListAPIView):
 class BlogDetailView(generics.RetrieveAPIView):
     queryset = Blog
     serializer_class = BlogDetailSerializer
+
+
+class PostDetail(generics.RetrieveAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
