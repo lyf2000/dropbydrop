@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from rest_framework import generics
 
-# Create your views here.
+from backend.blog.models import Blog
+from backend.blog.serializers import BlogSerializer
+
+
+# TODO add pagination
+class BlogListView(generics.ListAPIView):
+    queryset = Blog.objects.all()
+    serializer_class = BlogSerializer
