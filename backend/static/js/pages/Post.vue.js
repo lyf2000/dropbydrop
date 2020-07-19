@@ -20,7 +20,9 @@ const postTemplate =
         <hr>
 
         <!-- Post Content -->
-        <p>{{ post.text }}</p>
+        <div id="ttt"></div>  
+        
+        
 <!--        <hr>-->
 
         <!-- Comments Form -->
@@ -83,7 +85,14 @@ var Post = {
             post: {}
         }
     },
+
     methods: {
+        markText(text) {
+            console.log('mark')
+            document.getElementById('ttt').innerHTML =
+                marked(text);
+        },
+
         //TODO just send urls
         loadPostList() {
             const self = this
@@ -91,7 +100,7 @@ var Post = {
             axios.get(`http://127.0.0.1:8000/posts/${id}`)
                 .then(response => {
                     self.post = response.data
-                    console.log(self.post)
+                    self.markText(self.post.text)
                 })
         }
     },

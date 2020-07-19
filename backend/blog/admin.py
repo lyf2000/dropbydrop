@@ -1,3 +1,4 @@
+from django import forms
 from django.contrib import admin
 
 # Register your models here.
@@ -12,4 +13,7 @@ class BlogAdmin(admin.ModelAdmin):
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    pass
+
+    def get_form(self, request, obj=None, **kwargs):
+        kwargs['widgets'] = {'text': forms.Textarea}
+        return super().get_form(request, obj, **kwargs)
