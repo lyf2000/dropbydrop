@@ -27,6 +27,7 @@ INSTALLED_APPS = [
 
     # apps
     'backend.users',
+    'backend.blog',
 
     # 3rd-party
 
