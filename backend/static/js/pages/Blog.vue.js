@@ -2,7 +2,6 @@ const postListTemplate =
     `
 	    <div class="text-left"  id="blogDetail">
 	    <b-card @click="router.push({ name: 'post', params: { id: 1 } })" v-for="post in postList" :key="post.id" :title="post.title" :sub-title="post.created">
-    <b-card-text>{{ post.text }}</b-card-text>
 
   </b-card>
 	`
