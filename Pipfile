@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 ipython = "*"
+python-dotenv = "*"
 
 [packages]
 django = "*"

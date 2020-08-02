@@ -1,5 +1,11 @@
 import os
 
+DEBUG = False if os.getenv('DEBUG') == 'False' else True
+
+if DEBUG:
+    from dotenv import load_dotenv
+    load_dotenv()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -7,10 +13,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '==+y#2-$i)mas9@u6h5d*=h83jn1+hgpyyfjmp%-xcxpo*)+_4'
+SECRET_KEY = os.getenv('SECRET_KEY', 'foo')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
+
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', ]
 
