@@ -11,7 +11,7 @@ class BlogListView(generics.ListAPIView):
 
 
 class BlogDetailView(generics.RetrieveAPIView):
-    queryset = Blog
+    queryset = Blog.objects.all()
     serializer_class = BlogDetailSerializer
 
 

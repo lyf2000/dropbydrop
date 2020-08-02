@@ -31,6 +31,9 @@ INSTALLED_APPS = [
 
     # 3rd-party
     'rest_framework',
+    'ckeditor',
+    'ckeditor_uploader',
+
 ]
 
 AUTH_USER_MODEL = 'users.User'
@@ -119,3 +122,10 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# CKEDITOR
+# TODO by date
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_JQUERY_URL = os.path.join(STATIC_URL, 'js/jq.js')
+CKEDITOR_IMAGE_BACKEND = "pillow"

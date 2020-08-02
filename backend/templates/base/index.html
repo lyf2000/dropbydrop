@@ -23,15 +23,9 @@
 
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav mr-auto mt-2">
+            <ul class="navbar-nav mr-auto">
                 <li>
                     <router-link class="nav-link" to="/"> Home</router-link>
-                </li>
-                <li>
-                    <router-link class="nav-link" to="about"> About</router-link>
-                </li>
-                <li>
-                    <router-link class="nav-link" to="contact"> Contact</router-link>
                 </li>
             </ul>
         </div>
@@ -39,8 +33,10 @@
     <div class="container">
 
 
-        <div  style="margin-top: 20px;">
-            <router-view></router-view>
+        <div  style="margin-top: 20px;" class="row">
+            <div class="col-md-7 offset-md-1">
+                <router-view></router-view>
+            </div>
         </div>
     </div>
 </div>
@@ -57,7 +53,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.2.0/vue-router.min.js"></script>
 
 <script src="{% static 'js/pages/Home.vue.js' %}"></script>
-<script src="{% static 'js/pages/About.vue.js' %}"></script>
 <script src="{% static 'js/pages/Blog.vue.js' %}"></script>
 <script src="{% static 'js/pages/Post.vue.js' %}"></script>
 
@@ -69,7 +64,6 @@
         {path: '/', component: Home, name: "home"},
         {path: '/:id', component: Blog, name: "blog", props: true},
         {path: '/post/:id', component: Post, name: "post", props: true},
-        {path: '/about', component: About, name: "about"},
     ];
 
     var router = new VueRouter({

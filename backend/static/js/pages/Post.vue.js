@@ -1,28 +1,24 @@
 const postTemplate =
     `
- <div class="row justify-content-md-center">
+ 
 
       <!-- Post Content Column -->
-      <div class="col-lg-7">
+      <div id="post-page">
 
         <!-- Title -->
-        <h1 class="mt-4">{{ post.title }}</h1>
+        <h1 class="my-4">{{ post.title }}</h1>
 
         <hr>
 
-        <!-- Date/Time -->
-        <p>Posted on {{ post.created }}</p>
-
-        <hr>
-
-        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
-
-        <hr>
 
         <!-- Post Content -->
-        <div id="ttt"></div>  
+        <div id="post-text" class="mt-5"></div>  
         
-        
+        <hr>
+
+        <p class="text-right h6 font-weight-light font-italic mb-5">created {{ post.created }}</p>
+
+
 <!--        <hr>-->
 
         <!-- Comments Form -->
@@ -73,7 +69,6 @@ const postTemplate =
 <!--          </div>-->
 <!--        </div>-->
 
-      </div>
 
 </div>
 	`
@@ -88,13 +83,11 @@ var Post = {
 
     methods: {
         markText(text) {
-            // document.getElementById('ttt').innerHTML =
-                // marked(text);
-                
+            document.getElementById('post-text').innerHTML = text
         },
 
         //TODO just send urls
-        loadPostList() {
+        loadPost() {
             const self = this
             const id = this.$route.params.id
             axios.get(`http://127.0.0.1:8000/posts/${id}`)
@@ -106,6 +99,6 @@ var Post = {
     },
     created: function () {
         const self = this
-        self.loadPostList()
+        self.loadPost()
     }
 };
