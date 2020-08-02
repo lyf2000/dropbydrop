@@ -11,6 +11,8 @@ python-dotenv = "*"
 django = "*"
 django-ckeditor = "*"
 psycopg2 = "*"
+djangorestframework = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.8"
