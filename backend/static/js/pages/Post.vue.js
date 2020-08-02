@@ -88,9 +88,9 @@ var Post = {
 
     methods: {
         markText(text) {
-            console.log('mark')
-            document.getElementById('ttt').innerHTML =
-                marked(text);
+            // document.getElementById('ttt').innerHTML =
+                // marked(text);
+                
         },
 
         //TODO just send urls

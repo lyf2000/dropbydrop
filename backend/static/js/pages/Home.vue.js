@@ -35,7 +35,7 @@ var Home = {
     },
     created: function () {
         const self = this;
-        self.loadBlogList()
+        self.loadBlogList();
     },
 
 };
