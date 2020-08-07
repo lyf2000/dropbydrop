@@ -62,6 +62,7 @@
             ],
             "index": "pypi",
             "version": "==20.0.4"
+
         },
         "pillow": {
             "hashes": [
