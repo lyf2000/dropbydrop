@@ -7,25 +7,27 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-  # nginx:
-  #   build: ./backend/nginx
-  #   volumes:
-  #     - static_volume:/app/backend/staticfiles
-  #   ports:
-  #     - 1337:80
-  #   depends_on:
-  #     - web
+  nginx:
+    build: ./backend/nginx
+    volumes:
+      - static_volume:/app/backend/staticfiles
+    ports:
+      - 1337:80
+    depends_on:
+      - web
   web:
     build: .
     # command: python manage.py runserver 0.0.0.0:8000
     command: gunicorn backend.core.wsgi:application --bind 0.0.0.0:8000
-    ports:
-      - 1234:8000
-    # volumes:
-    #   - static_volume:/app/backend/staticfiles
+    # ports:
+    #   - 1234:8000
+    expose: 
+      - 8000
+    volumes:
+      - static_volume:/app/backend/staticfiles
     depends_on:
       - db
 
-# volumes:
-#   static_volume:
+volumes:
+  static_volume:
       

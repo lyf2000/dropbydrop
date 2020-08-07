@@ -18,4 +18,4 @@ RUN pipenv install --system --dev
 ADD ./backend ./backend
 COPY manage.py /app/
 
-# RUN python manage.py collectstatic
+# RUN python manage.py migrate
