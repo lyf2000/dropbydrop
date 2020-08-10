@@ -8,6 +8,7 @@ ENV DB_NAME postgres
 ENV DB_USER postgres
 ENV DB_PASSWORD postgres
 ENV DB_HOST db
+ENV VUE_APP_HOST http://localhost:1337
 
 WORKDIR /app
 
