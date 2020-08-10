@@ -4,9 +4,16 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+ipython = "*"
+python-dotenv = "*"
 
 [packages]
 django = "*"
+django-ckeditor = "*"
+psycopg2 = "*"
+djangorestframework = "*"
+pillow = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"

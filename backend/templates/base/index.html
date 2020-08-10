@@ -5,28 +5,81 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}{% endblock %}</title>
+    <title>DropbyDrop</title>
 
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
-
-
+    
 
 </head>
 <body>
-{% include 'base/header.html' %}
 
-<div class="container">
-{% block content %}
+{#TODO header, footer add#}
+{#{% include 'base/header.html' %}#}
+{#{% include 'base/footer.html' %}#}
 
-{% endblock %}
+
+<div id="app">
+
+    <nav class="navbar navbar-expand navbar-light" style="background-color: #e3f2fd;">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto">
+                <li>
+                    <router-link class="nav-link" to="/">{{ SETTING_TYPE }} Home</router-link>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+
+
+        <div  style="margin-top: 20px;" class="row">
+            <div class="col-md-7 offset-md-1">
+                <router-view></router-view>
+            </div>
+        </div>
+    </div>
 </div>
 
-{#{% include 'base/footer.html' %}#}
+<!-- Vue Pages -->
 
 <script src="{% static 'js/jq.js' %}"></script>
 <script src="{% static 'js/bootstrap.js' %}"></script>
 <script src="{% static 'js/general.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+<script src="{% static 'js/plugins/axios.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-vue/2.15.0/bootstrap-vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.2.0/vue-router.min.js"></script>
+
+<script src="{% static 'js/pages/Home.vue.js' %}"></script>
+<script src="{% static 'js/pages/Blog.vue.js' %}"></script>
+<script src="{% static 'js/pages/Post.vue.js' %}"></script>
+
+<!-- Vue Instance and Routes -->
+<script>
+    var axios = AXIOS
+    var VUE_APP_HOST = '{{ VUE_APP_HOST }}'
+    axios.defaults.baseURL = VUE_APP_HOST
+
+    var routes = [
+        {path: '/', component: Home, name: "home"},
+        {path: '/:id', component: Blog, name: "blog", props: true},
+        {path: '/post/:id', component: Post, name: "post", props: true},
+    ];
+
+    var router = new VueRouter({
+        routes: routes,
+        mode: 'history',
+        base: '/'
+    });
+
+    var app = new Vue({
+        el: '#app',
+        router: router,
+    })
+
+</script>
 
 </body>
 </html>

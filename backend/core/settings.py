@@ -1,5 +1,12 @@
 import os
 
+DEBUG = False if os.getenv('DEBUG') == 'False' else True
+print('debug', DEBUG)
+
+if DEBUG:
+    from dotenv import load_dotenv
+    load_dotenv()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -7,12 +14,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '==+y#2-$i)mas9@u6h5d*=h83jn1+hgpyyfjmp%-xcxpo*)+_4'
+SECRET_KEY = os.getenv('SECRET_KEY', 'foo')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', ]
+
+
+ALLOWED_HOSTS = ['localhost', ]
 
 # Application definition
 
@@ -27,8 +35,12 @@ INSTALLED_APPS = [
 
     # apps
     'backend.users',
+    'backend.blog',
 
     # 3rd-party
+    'rest_framework',
+    'ckeditor',
+    'ckeditor_uploader',
 
 ]
 
@@ -57,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'backend.core.context_processors.export_vars',
             ],
         },
     },
@@ -67,12 +80,24 @@ WSGI_APPLICATION = 'backend.core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+# DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
+# }
+
+DATABASES = {    
+    'default': {        
+        'ENGINE': 'django.db.backends.postgresql',        
+        'NAME': os.getenv('DB_NAME'),        
+        'USER': os.getenv('DB_USER'),     
+        'HOST': os.getenv('DB_HOST', 'localhost'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),   
+        } ,
+
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -118,3 +143,10 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# CKEDITOR
+# TODO by date
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_JQUERY_URL = os.path.join(STATIC_URL, 'js/jq.js')
+CKEDITOR_IMAGE_BACKEND = "pillow"
