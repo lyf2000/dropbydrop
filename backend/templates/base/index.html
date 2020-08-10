@@ -25,7 +25,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto">
                 <li>
-                    <router-link class="nav-link" to="/"> Home</router-link>
+                    <router-link class="nav-link" to="/">{{ SETTING_TYPE }} Home</router-link>
                 </li>
             </ul>
         </div>
@@ -58,7 +58,9 @@
 
 <!-- Vue Instance and Routes -->
 <script>
-    var axios = AXIOS
+    // var axios = AXIOS
+    var VUE_APP_HOST = '{{ VUE_APP_HOST }}'
+    console.log(VUE_APP_HOST)
     // axios.defaults.baseURL =  ? 'http://localhost:8000' : ''
 
     var routes = [
