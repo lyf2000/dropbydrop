@@ -13,6 +13,7 @@ django-ckeditor = "*"
 psycopg2 = "*"
 djangorestframework = "*"
 pillow = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"
