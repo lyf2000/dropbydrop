@@ -58,10 +58,9 @@
 
 <!-- Vue Instance and Routes -->
 <script>
-    // var axios = AXIOS
+    var axios = AXIOS
     var VUE_APP_HOST = '{{ VUE_APP_HOST }}'
-    console.log(VUE_APP_HOST)
-    // axios.defaults.baseURL =  ? 'http://localhost:8000' : ''
+    axios.defaults.baseURL = VUE_APP_HOST
 
     var routes = [
         {path: '/', component: Home, name: "home"},
