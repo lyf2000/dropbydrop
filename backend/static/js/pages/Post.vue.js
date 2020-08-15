@@ -90,7 +90,7 @@ var Post = {
         loadPost() {
             const self = this
             const id = this.$route.params.id
-            axios.get(`http://127.0.0.1:8000/posts/${id}`)
+            axios.get(`/posts/${id}`)
                 .then(response => {
                     self.post = response.data
                     self.markText(self.post.text)

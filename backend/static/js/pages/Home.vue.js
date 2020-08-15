@@ -26,7 +26,7 @@ var Home = {
     methods: {
         loadBlogList() {
             const self = this
-            axios.get('http://127.0.0.1:8000/blogs')
+            axios.get('/blogs')
                 .then(response => {
                     self.blogList = response.data
                 })

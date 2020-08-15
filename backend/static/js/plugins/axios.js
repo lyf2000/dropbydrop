@@ -1,2 +1,4 @@
-const AXIOS = axios.create()
+const AXIOS = axios.create({
+  
+})
 

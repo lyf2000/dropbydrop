@@ -1,7 +1,7 @@
 const postListTemplate =
     `
 	    <div class="text-left"  id="blogDetail">
-	    <b-card @click="router.push({ name: 'post', params: { id: 1 } })" v-for="post in postList" :key="post.id" :title="post.title" :sub-title="post.created">
+	    <b-card @click="router.push({ name: 'post', params: { id: post.id } })" v-for="post in postList" class="mt-3" :key="post.id" :title="post.title" :sub-title="post.created">
 
   </b-card>
 	`
@@ -18,7 +18,7 @@ var Blog = {
         loadPostList() {
             const self = this
             const id = this.$route.params.id
-            axios.get(`http://127.0.0.1:8000/blogs/${id}`)
+            axios.get(`/blogs/${id}`)
                 .then(response => {
                     self.postList = response.data.posts
                 })

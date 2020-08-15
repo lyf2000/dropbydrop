@@ -1,6 +1,7 @@
 import os
 
 DEBUG = False if os.getenv('DEBUG') == 'False' else True
+print('debug', DEBUG)
 
 if DEBUG:
     from dotenv import load_dotenv
@@ -19,7 +20,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'foo')
 
 
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', ]
+ALLOWED_HOSTS = ['localhost', ]
 
 # Application definition
 
@@ -68,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'backend.core.context_processors.export_vars',
             ],
         },
     },
@@ -90,7 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',        
         'NAME': os.getenv('DB_NAME'),        
         'USER': os.getenv('DB_USER'),     
-        # 'HOST': 'localhost',
+        'HOST': os.getenv('DB_HOST', 'localhost'),
         'PASSWORD': os.getenv('DB_PASSWORD'),   
         } ,
 
