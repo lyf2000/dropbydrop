@@ -20,7 +20,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'foo')
 
 
 
-ALLOWED_HOSTS = ['localhost', ]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', ]
 
 # Application definition
 
