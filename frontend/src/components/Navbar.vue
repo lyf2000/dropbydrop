@@ -3,6 +3,7 @@
       app
       color="#e3f2fd"
       dark
+      absolute
     >
  
          

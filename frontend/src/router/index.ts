@@ -14,6 +14,16 @@ Vue.use(VueRouter)
     path: '/blogs',
     name: 'Blogs',
     component: () => import('../views/Blogs.vue')
+  },
+  {
+    path: '/blog',
+    name: 'Blog',
+    component: () => import('../views/Blog.vue')
+  },
+  {
+    path: '/post',
+    name: 'Post',
+    component: () => import('../views/Post.vue')
   }
 ]
 

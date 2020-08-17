@@ -2,12 +2,12 @@
   <div class="blog-list">
     <v-row>
         <v-col
-            v-for="blog in blogs" 
-            :key="blog.id"
+            v-for="post in posts" 
+            :key="post.id"
             class="col-12 col-sm-10 col-md-8"
         >
-            <BlogItem 
-                :blogItem="blog"
+            <PostItem 
+                :postItem="post"
             />
              
         </v-col>
@@ -17,16 +17,16 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
-import BlogItem from '@/components/blogs/BlogItem.vue'
+import PostItem from '@/components/posts/PostItem.vue'
 
 
 @Component({
   components: {
-      BlogItem, 
+      PostItem, 
   }
 })
-export default class BlogList extends Vue {
-    blogs = [
+export default class PostList extends Vue {
+    posts = [
         {
             id: 1,
             title: 'T1'
