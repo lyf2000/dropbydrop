@@ -3,7 +3,6 @@
 
             <v-card
                 raised
-                
             >
     <v-list-item three-line>
       <v-list-item-content>

@@ -1,12 +1,12 @@
 <template>
    <div id="post">
-      <v-textarea
-        background-color="light-blue"
-        v-model="text"
-      ></v-textarea>
-      <div>
-        <markdown-it-vue class="md-body" :content="text" />
-      </div>
+     <v-row>
+        <v-col
+          class="col-12 col-sm-10 col-md-8"
+        >
+          <markdown-it-vue class="md-body" :content="text" />
+        </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -23,7 +23,10 @@ import 'markdown-it-vue/dist/markdown-it-vue.css'
   }
 })
 export default class Post extends Vue {
-    text = '## rget'
+    text = `## rget
+
+> ewgfdb
+> rgbdfbfgrgkobdpfobkdpfbkpdofkbpodbkdpfgobkpfgokbpfgobkpfgobnkfgponkpfgonkpfgonkfgsgvdfpobkdpfobkdpfgobkpfgobkpoponkpfg`
 }
 
 </script>

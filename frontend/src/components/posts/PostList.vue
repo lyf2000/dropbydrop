@@ -1,17 +1,11 @@
 <template>
   <div class="blog-list">
-    <v-row>
-        <v-col
-            v-for="post in posts" 
-            :key="post.id"
-            class="col-12 col-sm-10 col-md-8"
-        >
-            <PostItem 
-                :postItem="post"
-            />
-             
-        </v-col>
-    </v-row>
+    <PostItem 
+        v-for="post in posts" 
+        :key="post.id"
+        :postItem="post"
+        class="mb-3"
+    />
   </div>
 </template>
 

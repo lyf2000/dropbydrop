@@ -1,6 +1,12 @@
 <template>
   <div id="blogs">
-    <BlogList/>
+    <v-row>
+      <v-col
+        class="col-12 col-sm-10 col-md-8"
+      >
+        <BlogList/>
+      </v-col>
+    </v-row>
   </div>
 </template>
 

@@ -1,17 +1,13 @@
 <template>
   <div class="blog-list">
-    <v-row>
-        <v-col
+    
+        <BlogItem
             v-for="blog in blogs" 
             :key="blog.id"
-            class="col-12 col-sm-10 col-md-8"
-        >
-            <BlogItem 
-                :blogItem="blog"
-            />
+            :blogItem="blog"
+            class="mb-3"
+        />
              
-        </v-col>
-    </v-row>
   </div>
 </template>
 
