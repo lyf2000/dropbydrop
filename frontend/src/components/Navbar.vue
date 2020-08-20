@@ -8,13 +8,13 @@
  
          
          <v-btn 
-         to="/"
-         class="mr-3"
-         color="#8fe7dcb2"
+          to="/"
+          color="#8fe7dcb2"
          >Home</v-btn>
          <v-btn 
-         to="/blogs"
-         color="#8fe7dcb2"
+          to="/blogs"
+          class="ml-3"
+          color="#8fe7dcb2"
          >Blogs</v-btn>
       <v-spacer></v-spacer>
 
