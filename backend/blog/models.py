@@ -11,7 +11,7 @@ class Post(models.Model):
 
     title = models.CharField(max_length=256)
     # text = RichTextUploadingField()
-    text = models.CharField(max_length=1024)
+    text = models.CharField(max_length=1024*16)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
