@@ -7,7 +7,17 @@
           <div v-if="!post">
                 LOADING
           </div>
-          <markdown-it-vue v-else class="md-body" :content="post.text" />
+          <div v-else >
+            <h1 class="my-4">{{ post.title }}</h1>
+
+            <hr>
+
+            <markdown-it-vue  class="md-body my-5" :content="post.text" />
+   
+            <hr>
+
+            <p class="text-right h6 font-weight-light font-italic mb-5">created {{ post.created }}</p>
+          </div>
         </v-col>
     </v-row>
   </div>
