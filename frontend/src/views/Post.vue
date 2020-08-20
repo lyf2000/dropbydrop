@@ -5,7 +5,7 @@
           class="col-12 col-sm-10 col-md-8"
         >
           <div v-if="!post">
-                LOADING
+                
           </div>
           <div v-else >
             <h1 class="my-4">{{ post.title }}</h1>
