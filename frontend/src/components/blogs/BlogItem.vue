@@ -1,18 +1,20 @@
 <template>
   <div class="blog-item">
+    <v-card
+        raised
+        @click="$router.push({ name: 'Blog', params: { id: blogItem.id } })"
+    >
+      <v-list-item three-line>
+        <v-list-item-content>
+          <v-list-item-title 
+            class="headline mb-1"
+          >{{blogItem.title}}
+          </v-list-item-title>
+        </v-list-item-content>
 
-            <v-card
-                raised
-            >
-    <v-list-item three-line>
-      <v-list-item-content>
-        
-        <v-list-item-title class="headline mb-1">{{blogItem.title}}</v-list-item-title>
-      </v-list-item-content>
+      </v-list-item>
 
-    </v-list-item>
-
-  </v-card>
+    </v-card>
 
   </div>
 </template>
@@ -27,7 +29,10 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
   }
 })
 export default class BlogItem extends Vue {
+  // TODO make item as current from store
     @Prop() blogItem: any
+
+  // TODO add before close crash to null
 }
 
 </script>

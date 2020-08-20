@@ -1,7 +1,7 @@
 <template>
-  <div class="blog-list">
+  <div class="post-list">
     <PostItem 
-        v-for="post in posts" 
+        v-for="post in postList" 
         :key="post.id"
         :postItem="post"
         class="mb-3"
@@ -12,6 +12,8 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import PostItem from '@/components/posts/PostItem.vue'
+import { loadPostList } from '@/store/api/posts'
+import posts from '@/store/models/posts/posts.ts'
 
 
 @Component({
@@ -20,24 +22,15 @@ import PostItem from '@/components/posts/PostItem.vue'
   }
 })
 export default class PostList extends Vue {
-    posts = [
-        {
-            id: 1,
-            title: 'T1'
-        },
-        {
-            id: 2,
-            title: 'T2'
-        },
-        {
-            id: 2,
-            title: 'T2'
-        },
-        {
-            id: 2,
-            title: 'T2'
-        }
-    ]
+    created() {
+    loadPostList(this.$route.params.id)
+    .then((response) => posts.storePostList(response.data.posts))
+    .catch((err) => console.log(err))
+    } 
+
+    get postList() {
+        return posts.postList
+    }
 }
 
 </script>

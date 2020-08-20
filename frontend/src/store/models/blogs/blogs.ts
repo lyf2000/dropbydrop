@@ -1,7 +1,6 @@
 import { Module, Action, getModule, Mutation, VuexModule } from 'vuex-module-decorators'
 import store from '@/store'
 import { Blog } from '@/store/models/blogs/blogs.d.ts'
-import { loadBlogList } from '@/store/api/blogs'
 
 
 @Module({
@@ -15,11 +14,11 @@ class BlogsModule extends VuexModule {
 
 
     @Mutation
-    setEventList(blogList: Blog[]) {
+    setBlogList(blogList: Blog[]) {
         this._blogList = blogList
     }
 
-    @Action({commit: 'setEventList'})
+    @Action({commit: 'setBlogList'})
     storeBlogList(blogList: Blog[] = []) {
         
         return blogList

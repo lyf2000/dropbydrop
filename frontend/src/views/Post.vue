@@ -4,7 +4,10 @@
         <v-col
           class="col-12 col-sm-10 col-md-8"
         >
-          <markdown-it-vue class="md-body" :content="text" />
+          <div v-if="!post">
+                LOADING
+          </div>
+          <markdown-it-vue v-else class="md-body" :content="post.text" />
         </v-col>
     </v-row>
   </div>
@@ -15,6 +18,8 @@
 import { Vue, Component } from 'vue-property-decorator';
 import MarkdownItVue from 'markdown-it-vue'
 import 'markdown-it-vue/dist/markdown-it-vue.css'
+import { loadPost } from '@/store/api/posts'
+import posts from '@/store/models/posts/posts.ts'
 
 
 @Component({
@@ -23,10 +28,18 @@ import 'markdown-it-vue/dist/markdown-it-vue.css'
   }
 })
 export default class Post extends Vue {
-    text = `## rget
+    
+    created() {
+        loadPost(this.$route.params.id)
+        .then((response) => posts.storePost(response.data))
+        .catch((err) => console.log(err))
+    } 
 
-> ewgfdb
-> rgbdfbfgrgkobdpfobkdpfbkpdofkbpodbkdpfgobkpfgokbpfgobkpfgobnkfgponkpfgonkpfgonkfgsgvdfpobkdpfobkdpfgobkpfgobkpoponkpfg`
+
+    get post() {
+        return posts.post
+    }
+
 }
 
 </script>

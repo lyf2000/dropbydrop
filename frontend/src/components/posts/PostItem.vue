@@ -3,6 +3,7 @@
 
     <v-card
         raised
+        @click="$router.push({ name: 'Post', params: { id: postItem.id } })"
     >
       <v-list-item three-line>
         <v-list-item-content>

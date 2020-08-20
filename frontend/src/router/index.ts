@@ -16,13 +16,15 @@ Vue.use(VueRouter)
     component: () => import('../views/Blogs.vue')
   },
   {
-    path: '/blog',
+    path: '/blog/:id',
     name: 'Blog',
+    props: true,
     component: () => import('../views/Blog.vue')
   },
   {
-    path: '/post',
+    path: '/posts/:id',
     name: 'Post',
+    props: true,
     component: () => import('../views/Post.vue')
   }
 ]

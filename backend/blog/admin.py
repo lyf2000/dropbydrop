@@ -12,7 +12,7 @@ class BlogAdmin(admin.ModelAdmin):
 
 
 class PostAdminForm(forms.ModelForm):
-    text = forms.CharField(widget=CKEditorUploadingWidget())
+    # text = forms.CharField(widget=CKEditorUploadingWidget())
     class Meta:
         model = Post
         fields = '__all__'
