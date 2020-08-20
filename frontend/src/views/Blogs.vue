@@ -14,8 +14,6 @@
 
 import { Vue, Component } from 'vue-property-decorator'
 import BlogList from '@/components/blogs/BlogList.vue'
-import { loadBlogList } from '@/store/api/blogs'
-import blogs from '@/store/models/blogs/blogs.ts'
 
 
 @Component({
@@ -25,12 +23,7 @@ import blogs from '@/store/models/blogs/blogs.ts'
   }
 })
 export default class Blogs extends Vue {
-  created() {
-    loadBlogList()
-    .then((response) => blogs.storeBlogList(response.data))
-    .catch((err) => console.log(err))
-    
-  }
+  
 }
 
 </script>

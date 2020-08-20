@@ -32,6 +32,11 @@ class BlogsModule extends VuexModule {
         
         // return data.results  || [] as (EventItem)[]
     }
+
+
+    get blogList() {
+        return this._blogList
+    }
 }
 
 export default getModule(BlogsModule)
