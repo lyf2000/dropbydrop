@@ -15,6 +15,7 @@ services:
       context: .
     ports:
       - 1337:80
+
     volumes:
       - pgdata:/var/lib/postgresql/data
     depends_on:
@@ -27,6 +28,7 @@ services:
     #   - 8000
     ports:
       - 1234:8000
+
     volumes:
       - static_volume:/app/backend/staticfiles
     depends_on:
@@ -34,7 +36,6 @@ services:
 
 volumes:
   static_volume:
-  pgdata:
     driver: local
     driver_opts:
       type: none
