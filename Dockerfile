@@ -1,14 +1,16 @@
+
 FROM python:3.8
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-ENV DEBUG False
+ENV DEBUG True
 ENV DB_NAME postgres
 ENV DB_USER postgres
 ENV DB_PASSWORD postgres
 ENV DB_HOST db
-ENV VUE_APP_HOST http://www.dropbydrop.me
+# ENV VUE_APP_HOST http://localhost:1337
+
 
 WORKDIR /app
 
@@ -17,6 +19,7 @@ COPY Pipfile* /app/
 RUN pipenv install --system --dev
 
 ADD ./backend ./backend
+# COPY --from=frontend /app/dist /vue
 COPY manage.py /app/
 
 # RUN python manage.py migrate

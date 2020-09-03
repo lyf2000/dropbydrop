@@ -1,3 +1,6 @@
-.env
+**/.env
 **/media/
 *.sqlite3
+
+**/node_modules
+**/dist
