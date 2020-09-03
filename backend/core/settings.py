@@ -18,9 +18,8 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'foo')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.dropbydrop.me', 'dropbydrop.me', ]
 
-
-ALLOWED_HOSTS = ['localhost', 'www.dropbydrop.me', 'dropbydrop.me', ]
 
 # Application definition
 
@@ -41,6 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'ckeditor',
     'ckeditor_uploader',
+    'corsheaders',
+
 
 ]
 
@@ -49,6 +50,7 @@ AUTH_USER_MODEL = 'users.User'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -150,3 +152,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_JQUERY_URL = os.path.join(STATIC_URL, 'js/jq.js')
 CKEDITOR_IMAGE_BACKEND = "pillow"
+
+
+###
+## CORS
+###
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:8080',
+    'http://127.0.0.1:8080',
+]
