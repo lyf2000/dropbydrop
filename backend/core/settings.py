@@ -18,9 +18,8 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'foo')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.dropbydrop.me', 'dropbydrop.me', ]
 
-
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', ]
 
 # Application definition
 

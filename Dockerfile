@@ -11,6 +11,7 @@ ENV DB_PASSWORD postgres
 ENV DB_HOST db
 # ENV VUE_APP_HOST http://localhost:1337
 
+
 WORKDIR /app
 
 RUN pip install pipenv
