@@ -40,7 +40,7 @@ import posts from '@/store/models/posts/posts.ts'
 export default class Post extends Vue {
     
     created() {
-        loadPost(this.$route.params.id)
+        loadPost(+this.$route.params.id)
         .then((response) => posts.storePost(response.data))
         .catch((err) => console.log(err))
     } 
