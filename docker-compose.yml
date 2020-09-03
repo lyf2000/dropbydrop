@@ -7,31 +7,22 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-<<<<<<< HEAD
     volumes:
       - pgdata:/var/lib/postgresql/data
   nginx:
     build: 
       dockerfile: nginx/Dockerfile
       context: .
-=======
->>>>>>> f37fa438ad0f340c5871471ea324ff33e5ed1d2e
     volumes:
       - pgdata:/var/lib/postgresql/data
   web:
     build: .
-<<<<<<< HEAD
     command: python manage.py runserver 0.0.0.0:8000
     # command: gunicorn backend.core.wsgi:application --bind 0.0.0.0:8000
     ports:
       - 1234:8000
     # expose: 
     #   - 8000
-=======
-    command: gunicorn backend.core.wsgi:application --bind 0.0.0.0:8000
-    ports:
-      - 1234:8000
->>>>>>> f37fa438ad0f340c5871471ea324ff33e5ed1d2e
     volumes:
       - static_volume:/app/backend/staticfiles
     depends_on:
@@ -39,13 +30,9 @@ services:
 
 volumes:
   static_volume:
-<<<<<<< HEAD
-  pgdata:
-=======
     driver: local
     driver_opts:
       type: none
       device: /home/comp/files
       o: bind
   pgdata:
->>>>>>> f37fa438ad0f340c5871471ea324ff33e5ed1d2e
