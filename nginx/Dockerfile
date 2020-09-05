@@ -15,5 +15,5 @@ FROM nginx:latest
 
 RUN rm /etc/nginx/conf.d/default.conf
 RUN mkdir /app
-COPY --from=frontend /app /app
+COPY --from=frontend /app/dist /app
 COPY nginx/nginx.conf /etc/nginx/conf.d
